@@ -1,4 +1,4 @@
-# Project Title
+# Loan Qualifier App
 
 Just after the title, introduce your project by describing attractively what the project is about and what is the main problem that inspires you to create this project or what is the main contribution for the potential user of your project.
 
@@ -6,13 +6,35 @@ Just after the title, introduce your project by describing attractively what the
 
 ## Technologies
 
-Describe the technologies required to use your project such as programming languages, libraries, frameworks, and operating systems. Be sure to include the specific versions of any critical dependencies that you have used in the stable version of your project.
+Loan Qualifier App is a python application built with the following technologies:
+
+### Language
+
+| Language      | Version       |
+| ------------- |---------------|
+| Python        | 3.7.11        |
+### Libraries and Frameworks
+
+| Component      | Version       |
+| ------------- |---------------|
+| Anaconda        | 1.9.0        |
+| Conda        | 4.11.0       |
+
+### Operating System
+
+This vesion of Loan Qualifier App is operation system agnostic.
 
 ---
 
 ## Installation Guide
 
 In this section, you should include detailed installation notes containing code blocks and screenshots.
+
+Required Python modules
+
+fire
+
+questionary
 
 ---
 
