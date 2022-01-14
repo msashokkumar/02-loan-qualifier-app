@@ -10,8 +10,9 @@ import sys
 import fire
 import questionary
 from pathlib import Path
+import terminal_banner as tb
 
-from qualifier.utils.fileio import load_csv
+from qualifier.utils.fileio import load_csv, write_csv
 
 from qualifier.utils.calculators import (
     calculate_monthly_debt_ratio,
@@ -102,21 +103,79 @@ def find_qualifying_loans(bank_data, credit_score, debt, income, loan, home_valu
     return bank_data_filtered
 
 
-def save_qualifying_loans(qualifying_loans):
+def save_qualifying_loans(csv_header, qualifying_loans):
     """Saves the qualifying loans to a CSV file.
 
     Args:
+        csv_header(list): Header row from the input csv file.
         qualifying_loans (list of lists): The qualifying bank loans.
     """
-    # @TODO: Complete the usability dialog for savings the CSV Files.
-    # YOUR CODE HERE!
+
+    # [['Bank of Big - Starter Plus', '300000', '0.85', '0.39', '700', '4.35'],
+    #  ['West Central Credit Union - Starter Plus', '300000', '0.8', '0.44', '650', '3.9'],
+    #  ['FHA Fredie Mac - Starter Plus', '300000', '0.85', '0.45', '550', '4.35'],
+    #  ['FHA Fannie Mae - Starter Plus', '200000', '0.9', '0.37', '630', '4.2'],
+    #  ['General MBS Partners - Starter Plus', '300000', '0.85', '0.36', '670', '4.05'],
+    #  ['Bank of Fintech - Starter Plus', '100000', '0.85', '0.47', '610', '4.5'],
+    #  ['iBank - Starter Plus', '300000', '0.9', '0.4', '620', '3.9'],
+    #  ['Goldman MBS - Starter Plus', '100000', '0.8', '0.43', '600', '4.35'],
+    #  ['Prosper MBS - Starter Plus', '100000', '0.9', '0.38', '640', '3.75'],
+    #  ['Developers Credit Union - Starter Plus', '200000', '0.85', '0.46', '640', '4.2'],
+    #  ['Bank of Stodge & Stiff - Starter Plus', '100000', '0.8', '0.35', '680', '4.35']]
+
+    save_csv_file = questionary.confirm("Do you want to save the qualifying loans as a csv file?").ask()
+
+    if save_csv_file:
+        if len(qualifying_loans):
+
+            try_file_create = True
+            count = 0
+
+            while try_file_create:
+
+                # Try 3 times until a unique file name that doesn't already exist is received.
+                count += 1
+
+                if count > 3:
+                    print("Maximum attempts reached for creating a new file.")
+                    print("Exiting. Please try again later.")
+                    exit(0)
+
+                output_csvpath = questionary.text("Enter a file path to store the csv file (.csv):").ask()
+                output_csvpath = Path(output_csvpath)
+
+                if output_csvpath.is_file():
+                    print("File path already exists. Please enter an unique file name.")
+                else:
+                    try_file_create = False
+
+            save_csv_file_confirm = questionary.confirm(f"Output will be stored to {output_csvpath}. Proceed?").ask()
+
+            if save_csv_file_confirm:
+                output_csv_path = write_csv(output_csvpath, csv_header, qualifying_loans)
+            else:
+                print("Output not saved to a csv file. Goodbye!")
+        else:
+            print("No qualifying loans to save. Good bye!")
+
+
+def display_banner():
+    """Display a welcome banner in CLI
+    Ref: https://pypi.org/project/terminal-banner/
+    """
+    banner_text = "Welcome to \n\n Loan Qualifier App!"
+    my_banner = tb.Banner(banner_text)
+    print(my_banner)
 
 
 def run():
     """The main function for running the script."""
 
-    # Load the latest Bank data
-    bank_data = load_bank_data()
+    # TODO: Banner fails when then output is not
+    # display_banner()
+
+    # Load the latest Bank data and headers from the input csv file
+    csv_header, bank_data = load_bank_data()
 
     # Get the applicant's information
     credit_score, debt, income, loan_amount, home_value = get_applicant_info()
@@ -127,7 +186,7 @@ def run():
     )
 
     # Save qualifying loans
-    save_qualifying_loans(qualifying_loans)
+    save_qualifying_loans(csv_header, qualifying_loans)
 
 
 if __name__ == "__main__":
