@@ -96,17 +96,26 @@ python /Users/ashok/berkley/fintech-workspace/02_loan_qualifier_app/app.py
 When the qualifier app determines there are qualifying loans, its prompts the user if they want to save the output to a 
 csv file. If yes, it will prompt for the file name. Once the file name is provided, the app will require confirmation to go
 ahead and save the csv file. The user can choose to not save the file at this time.
-![Opt out of saving](/images/qualifying_loans_out_out_save.png?raw=true "User can opt out of saving the csv file even after providing the file name.")
 
-If the use chooses to save the file, the csv file will be stored in the location provided.
-![Qualifying Loans](/images/qualifying_loans_unique_path.png?raw=true "File saved when there are qualifying loans and unqiue file name provided.")
+![Opt out of saving](/media/images/qualifying_loans_out_out_save.png?raw=true "User can opt out of saving the csv file even after providing the file name.")
+
+If the user chooses to save the file, the csv file will be stored in the location provided.
+
+![Qualifying Loans](/media/images/qualifying_loans_unique_path.png?raw=true "File saved when there are qualifying loans and unqiue file name provided.")
 
 The application user has 3 attempts fo provide a unique file name after which the app will exit. If unique file name is
 provided within 3 attempts, the csv file will be stored.
-![Unique Filename Required](/images/qualifying_loans_unique_path_attempts_failed.png?raw=true "3 failed attempts of providing a unique name will result in app exiting.")
+
+![Unique Filename Required](/media/images/qualifying_loans_unique_path_attempts_failed.png?raw=true "3 failed attempts of providing a unique name will result in app exiting.")
 
 If there are no qualifying loans for the user, the app will not try to save the csv file and will exit.
-![No Qualifying Loans](/images/no_qualifying_loans.png?raw=true "Files not saves when there are no qualifying loans.")
+
+![No Qualifying Loans](/media/images/no_qualifying_loans.png?raw=true "Files not saves when there are no qualifying loans.")
+
+---
+## Demo
+
+![Loan Qualifier Demo](/media/videos/02_loan_qualifier_demo_recording.mov?raw=true "Loan Qualifier App Demo Recording")
 
 ---
 
