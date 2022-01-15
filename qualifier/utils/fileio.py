@@ -45,8 +45,10 @@ def write_csv(csvpath, headers, data):
         data: Data to be stored in the csv file.
     """
 
-    if not os.path.exists(csvpath):
-        os.makedirs(os.path.dirname(csvpath))
+    dir_name = os.path.dirname(csvpath)
+
+    if not os.path.exists(dir_name):
+        os.makedirs(dir_name)
 
     with open(csvpath, 'w', newline='') as csvfile:
         csv_writer = csv.writer(csvfile, delimiter=',')
