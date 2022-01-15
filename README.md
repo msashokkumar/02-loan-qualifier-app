@@ -113,18 +113,17 @@ If there are no qualifying loans for the user, the app will not try to save the 
 ![No Qualifying Loans](/media/images/no_qualifying_loans.png?raw=true "Files not saves when there are no qualifying loans.")
 
 ---
-## Demo
-
-![Loan Qualifier Demo](/media/videos/02_loan_qualifier_demo_recording.mov?raw=true "Loan Qualifier App Demo Recording")
-
----
-
 ## Contributors
 
-In this section, list all the people who contribute to this project. You might want recruiters or potential collaborators to reach you, so include your contact email and, optionally, your LinkedIn or Twitter profile.
-
+```markdown
+{
+  "name": "Ashok Kumar Madhavi Selvaraj",
+  "email": "ashok.ms.kumar@gmail.com",
+  "linkedin": "https://www.linkedin.com/in/msashokkumar"
+}
+```
 ---
 
 ## License
 
-When you share a project on a repository, especially a public one, it's important to choose the right license to specify what others can and can't with your source code and files. Use this section to include the license you want to use.
+Please refer to LICENSE.
