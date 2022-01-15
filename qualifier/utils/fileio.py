@@ -5,7 +5,7 @@ This contains a helper function for loading and saving CSV files.
 
 """
 import csv
-
+import os
 
 def load_csv(csvpath):
     """Reads the CSV file from path provided.
@@ -44,6 +44,10 @@ def write_csv(csvpath, headers, data):
         headers: The header row for the csv file.
         data: Data to be stored in the csv file.
     """
+
+    if not os.path.exists(csvpath):
+        os.makedirs(os.path.dirname(csvpath))
+
     with open(csvpath, 'w', newline='') as csvfile:
         csv_writer = csv.writer(csvfile, delimiter=',')
         csv_writer.writerow(headers)
