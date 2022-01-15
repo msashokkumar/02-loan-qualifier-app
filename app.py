@@ -137,7 +137,7 @@ def save_qualifying_loans(csv_header, qualifying_loans):
                 count += 1
 
                 if count > 3:
-                    print("Maximum attempts reached for creating a new file.")
+                    print("Maximum failed attempts reached for creating a new file.")
                     print("Exiting. Please try again later.")
                     exit(0)
 
@@ -153,6 +153,7 @@ def save_qualifying_loans(csv_header, qualifying_loans):
 
             if save_csv_file_confirm:
                 output_csv_path = write_csv(output_csvpath, csv_header, qualifying_loans)
+                print(f"Qualifying loans saved to {output_csv_path}. Goodbye!")
             else:
                 print("Output not saved to a csv file. Goodbye!")
         else:
