@@ -1,0 +1,123 @@
+commit d72fae0a0115323e57ed58df68e02055da0a81dc
+Author: msashokkumar <ashok.ms.kumar@gmail.com>
+Date:   Fri Jan 14 18:25:39 2022 -0800
+
+    [DOC] All terminal_history.txt
+
+commit 6cd3fd1627c62fe47e1d87a4ae38f5b56d649062
+Author: msashokkumar <ashok.ms.kumar@gmail.com>
+Date:   Fri Jan 14 18:22:14 2022 -0800
+
+    [DOC] Add LICENSE to README.md
+
+commit a9b516eea64457011e53d91d7af3ca94979b84c0
+Merge: a48aad8 b2e3ab7
+Author: Ashok Kumar Madhavi Selvaraj <ashok.ms.kumar@gmail.com>
+Date:   Fri Jan 14 18:21:25 2022 -0800
+
+    Merge pull request #1 from msashokkumar/add-license-1
+    
+    [DOC] Add LICENSE.md
+
+commit b2e3ab7469f1ad10d44883aad7b6cd22ddb6cbf2
+Author: Ashok Kumar Madhavi Selvaraj <ashok.ms.kumar@gmail.com>
+Date:   Fri Jan 14 18:20:37 2022 -0800
+
+    [DOC] Add LICENSE.md
+
+commit a48aad8732eb16ce0a6543c02f20b52c94fc98ac
+Author: msashokkumar <ashok.ms.kumar@gmail.com>
+Date:   Fri Jan 14 17:58:58 2022 -0800
+
+    [DOC] Add images to videos to media folder
+
+commit 49a4ae58ca2f71bf520245344d97e46e4eb3799c
+Author: msashokkumar <ashok.ms.kumar@gmail.com>
+Date:   Fri Jan 14 17:56:25 2022 -0800
+
+    [DOC] Add demo video to README.md
+
+commit abbe3f3745757703b247d19a9e0aef1f27655ee6
+Author: msashokkumar <ashok.ms.kumar@gmail.com>
+Date:   Fri Jan 14 17:16:18 2022 -0800
+
+    [DOC] Add images to README.md
+
+commit 07301c059cb3ee0232673f0f01c924e6e2c8bfbd
+Author: msashokkumar <ashok.ms.kumar@gmail.com>
+Date:   Fri Jan 14 17:04:22 2022 -0800
+
+    [DOC] Update README.md with installations instructions
+
+commit 906cccee10366b30a08648732223c4acf5f10cbc
+Author: msashokkumar <ashok.ms.kumar@gmail.com>
+Date:   Fri Jan 14 17:03:56 2022 -0800
+
+    [DCO] Add images for README.md
+
+commit ca7d406f6451dd635c7870e3be92c0fd2e52c412
+Author: msashokkumar <ashok.ms.kumar@gmail.com>
+Date:   Fri Jan 14 16:43:52 2022 -0800
+
+    [FTR] Fix requirements.txt file
+
+commit 1d72ee7f161ce5c4747225ca45d8762cc4fd7dfe
+Author: msashokkumar <ashok.ms.kumar@gmail.com>
+Date:   Fri Jan 14 16:42:07 2022 -0800
+
+    [DOC] Add sample output files
+
+commit 0509043baceab48a7caaef0c1a88feee6ff98fe0
+Author: msashokkumar <ashok.ms.kumar@gmail.com>
+Date:   Fri Jan 14 16:41:23 2022 -0800
+
+    [STY] Fix print message language for failed attempts
+    
+    - Display the output csv file name instead of the variable name
+
+commit bc12e22c4c3eebb37f5eda5b907e960f5d60f6eb
+Author: msashokkumar <ashok.ms.kumar@gmail.com>
+Date:   Fri Jan 14 16:40:08 2022 -0800
+
+    [BUG] Use dirname instead of csvpath for checking if fodler already exist
+
+commit 702dc1f7fc697c0d1ca24d2fd7533344f7622f6b
+Author: msashokkumar <ashok.ms.kumar@gmail.com>
+Date:   Fri Jan 14 16:26:54 2022 -0800
+
+    [BUG] Make directory before trying to save output csv file
+    
+    - While saving csv output, if the directory doesn't exist, app errors.
+    - Make the directory, if it doesnt exist and then save the csv file.
+
+commit 3ff62b053efdad606f41297e3664b65ecbb9f936
+Author: msashokkumar <ashok.ms.kumar@gmail.com>
+Date:   Fri Jan 14 15:53:22 2022 -0800
+
+    [FTR] Add save to csv feature for qualifying loans
+
+commit 58bbeeed1dfc1da465eb24b19cdb2dd7206e10a9
+Author: msashokkumar <ashok.ms.kumar@gmail.com>
+Date:   Fri Jan 14 15:52:16 2022 -0800
+
+    [FTR] Add writer to qualifier utils
+    
+    - Add new utility to write csv file to the given path
+
+commit eb8c20c1fbbe824b2691d06dc3f2a2c0230b5f9d
+Author: msashokkumar <ashok.ms.kumar@gmail.com>
+Date:   Fri Jan 14 12:28:41 2022 -0800
+
+    Update Readme.md
+
+commit 89f6f74b47c9191c1be7dc5ce563d905115501f6
+Author: msashokkumar <ashok.ms.kumar@gmail.com>
+Date:   Fri Jan 14 12:06:37 2022 -0800
+
+    Initial commit
+
+commit 67832f241107a5dd0daf2bb7c091d81504b12734
+Author: Ashok Kumar Madhavi Selvaraj <ashok.ms.kumar@gmail.com>
+Date:   Fri Jan 14 11:54:26 2022 -0800
+
+    Initial commit
