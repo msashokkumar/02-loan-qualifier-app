@@ -1,0 +1,50 @@
+  336  ls -ltr
+  337  cd output
+  338  ls
+  339  cd qualifying_loans_output.csv
+  340  cd ..
+  341  rm -rd output
+  342  clear
+  343  ls -ltr
+  344  python app.py
+  345  cd
+  346  python ~/berkley/fintech-workspace/02_loan_qualifier_app/app.py
+  347  ls -ltr ~/berkley/fintech-workspace/02_loan_qualifier_app/data/daily_rate_sheet.csv
+  348  python /Users/ashok/berkley/fintech-workspace/02_loan_qualifier_app/app.py
+  349  history
+  350* ls -ltr ~/berkley/fintech-workspace/02_loan_qualifier_app
+  351* pwd
+  352* \n
+  353* conda activate dev
+  354* python /Users/ashok/berkley/fintech-workspace/02_loan_qualifier_app/app.py
+  355* exit
+  356* conda activate dev
+  357* pwd
+  358* ls -ltr ~/berkley/fintech-workspace/02_loan_qualifier_app
+  359* python /Users/ashok/berkley/fintech-workspace/02_loan_qualifier_app/app.py
+  360* exit
+  361  cd ~/berkley/fintech-workspace/02_loan_qualifier_app
+  362  git status
+  363  pwd
+  364  cd ..
+  365  ls -ltr
+  366  rm -rf 02_loan_qualifier_app
+  367  git clone git@github.com:msashokkumar/02_loan_qualifier_app.git
+  368  \tclear
+  369  history
+  370  cd 02_loan_qualifier_app
+  371  ls -ltr
+  372  history 50 > terminal_history.txt
+  373  git status
+  374  history 50
+  375  git history
+  376  git
+  377  git log
+  378  git log > git_log_history.txt
+  379  ls -ltr
+  380  git reflog
+  381  clear
+  382  ls -ltr
+  383  python app.py
+  384  clear
+  385  history | tail -50
