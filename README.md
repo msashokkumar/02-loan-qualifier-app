@@ -31,19 +31,19 @@ Loan Qualifier App is an application built with the following technologies:
 
 ### Language
 
-| Language      | Version       |
-| ------------- |---------------|
-| Python        | 3.7.11        |
+| Language | Version |
+|----------|---------|
+| Python   | 3.7.11  |
 ### Libraries and Frameworks
 
-| Component      | Version       |
-| ------------- |---------------|
-| Anaconda        | 1.9.0        |
-| Conda        | 4.11.0       |
+| Component | Version |
+|-----------|---------|
+| Anaconda  | 1.9.0   |
+| Conda     | 4.11.0  |
 
 ### Operating System
 
-This vesion of Loan Qualifier App is operation system agnostic.
+This version of Loan Qualifier App is operating system agnostic.
 
 ---
 
@@ -55,6 +55,8 @@ This vesion of Loan Qualifier App is operation system agnostic.
 - Anaconda 1.9.0
 - Conda 4.11.0
 - A conda environment created specially for this project.  We will refer to that environment as `dev` in this doc.
+
+### Installation
 
 ```bash
 conda create --name dev python=3.7
