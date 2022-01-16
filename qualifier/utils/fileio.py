@@ -23,7 +23,8 @@ def load_csv(csvpath):
         csvreader = csv.reader(csvfile, delimiter=",")
 
         # We will have to preserve header for the output csv file
-
+        # If the user chooses to store the csv file, it would require headers which
+        # could be derived from the provided daily rate sheet file.
         csv_header = []
 
         # Read the CSV data
@@ -45,11 +46,13 @@ def write_csv(csvpath, headers, data):
         data: Data to be stored in the csv file.
     """
 
+    # If the provided path contains a directory that doesn't exist, please create it.
     dir_name = os.path.dirname(csvpath)
 
     if not os.path.exists(dir_name):
         os.makedirs(dir_name)
 
+    # Write the csv file with the provided header.
     with open(csvpath, 'w', newline='') as csvfile:
         csv_writer = csv.writer(csvfile, delimiter=',')
         csv_writer.writerow(headers)

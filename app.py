@@ -110,33 +110,26 @@ def save_qualifying_loans(csv_header, qualifying_loans):
         csv_header(list): Header row from the input csv file.
         qualifying_loans (list of lists): The qualifying bank loans.
     """
-
-    # [['Bank of Big - Starter Plus', '300000', '0.85', '0.39', '700', '4.35'],
-    #  ['West Central Credit Union - Starter Plus', '300000', '0.8', '0.44', '650', '3.9'],
-    #  ['FHA Fredie Mac - Starter Plus', '300000', '0.85', '0.45', '550', '4.35'],
-    #  ['FHA Fannie Mae - Starter Plus', '200000', '0.9', '0.37', '630', '4.2'],
-    #  ['General MBS Partners - Starter Plus', '300000', '0.85', '0.36', '670', '4.05'],
-    #  ['Bank of Fintech - Starter Plus', '100000', '0.85', '0.47', '610', '4.5'],
-    #  ['iBank - Starter Plus', '300000', '0.9', '0.4', '620', '3.9'],
-    #  ['Goldman MBS - Starter Plus', '100000', '0.8', '0.43', '600', '4.35'],
-    #  ['Prosper MBS - Starter Plus', '100000', '0.9', '0.38', '640', '3.75'],
-    #  ['Developers Credit Union - Starter Plus', '200000', '0.85', '0.46', '640', '4.2'],
-    #  ['Bank of Stodge & Stiff - Starter Plus', '100000', '0.8', '0.35', '680', '4.35']]
-
+    # Prompt the  user if they want to save the qualifying loans as a csv file
     save_csv_file = questionary.confirm("Do you want to save the qualifying loans as a csv file?").ask()
 
     if save_csv_file:
+        # Save results to csv file only if there are qualifying loans.
+        # If there are no qualifying loans, alter the user and exit.
         if len(qualifying_loans):
 
             try_file_create = True
-            count = 0
+            file_create_attempt = 0
 
+            # Keep trying until a unique file name is provided.
+            # The user gets 3 attempts before the app exits.
             while try_file_create:
 
-                # Try 3 times until a unique file name that doesn't already exist is received.
-                count += 1
+                # Try 3 times until a unique file name that doesn't already exist is provided.
+                # If there are more than 3 attempts, quit and prompt user to retry.
+                file_create_attempt += 1
 
-                if count > 3:
+                if file_create_attempt > 3:
                     print("Maximum failed attempts reached for creating a new file.")
                     print("Exiting. Please try again later.")
                     exit(0)
@@ -144,14 +137,19 @@ def save_qualifying_loans(csv_header, qualifying_loans):
                 output_csvpath = questionary.text("Enter a file path to store the csv file (.csv):").ask()
                 output_csvpath = Path(output_csvpath)
 
+                # Check if the file name provided by the user already exists.
+                # If so, prompt the user to provide a new name.
                 if output_csvpath.is_file():
                     print("File path already exists. Please enter an unique file name.")
                 else:
                     try_file_create = False
 
+            # Please confirm with the user if they want to save the file to the given location.
+            # This provides the user an option to abort from saving the file.
             save_csv_file_confirm = questionary.confirm(f"Output will be stored to {output_csvpath}. Proceed?").ask()
 
             if save_csv_file_confirm:
+                # write_csv is defined in qualifier/utils/fileio.py
                 output_csv_path = write_csv(output_csvpath, csv_header, qualifying_loans)
                 print(f"Qualifying loans saved to {output_csv_path}. Goodbye!")
             else:
@@ -164,7 +162,7 @@ def display_banner():
     """Display a welcome banner in CLI
     Ref: https://pypi.org/project/terminal-banner/
     """
-    banner_text = "Welcome to \n\n Loan Qualifier App!"
+    banner_text = "Welcome to \n\nLoan Qualifier App!\nNow with option to save output as a csv file."
     my_banner = tb.Banner(banner_text)
     print(my_banner)
 
@@ -172,8 +170,8 @@ def display_banner():
 def run():
     """The main function for running the script."""
 
-    # TODO: Banner fails when then output is not
-    # display_banner()
+    # TODO: Banner fails when the output target is not stdout
+    display_banner()
 
     # Load the latest Bank data and headers from the input csv file
     csv_header, bank_data = load_bank_data()
