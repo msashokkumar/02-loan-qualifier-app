@@ -103,6 +103,36 @@ def find_qualifying_loans(bank_data, credit_score, debt, income, loan, home_valu
     return bank_data_filtered
 
 
+def get_unique_filename():
+    try_file_create = True
+    file_create_attempt = 0
+
+    # Keep trying until a unique file name is provided.
+    # The user gets 3 attempts before the app exits.
+    while try_file_create:
+
+        # Try 3 times until a unique file name that doesn't already exist is provided.
+        # If there are more than 3 attempts, quit and prompt user to retry.
+        file_create_attempt += 1
+
+        if file_create_attempt > 3:
+            print("Maximum failed attempts reached for creating a new file.")
+            print("Exiting. Please try again later.")
+            exit(0)
+
+        output_csvpath = questionary.text("Enter a file path to store the csv file (.csv):").ask()
+        output_csvpath = Path(output_csvpath)
+
+        # Check if the file name provided by the user already exists.
+        # If so, prompt the user to provide a new name.
+        if output_csvpath.is_file():
+            print("File path already exists. Please enter an unique file name.")
+        else:
+            try_file_create = False
+
+        return output_csvpath
+
+
 def save_qualifying_loans(csv_header, qualifying_loans):
     """Saves the qualifying loans to a CSV file.
 
@@ -118,31 +148,8 @@ def save_qualifying_loans(csv_header, qualifying_loans):
         # If there are no qualifying loans, alter the user and exit.
         if len(qualifying_loans):
 
-            try_file_create = True
-            file_create_attempt = 0
-
-            # Keep trying until a unique file name is provided.
-            # The user gets 3 attempts before the app exits.
-            while try_file_create:
-
-                # Try 3 times until a unique file name that doesn't already exist is provided.
-                # If there are more than 3 attempts, quit and prompt user to retry.
-                file_create_attempt += 1
-
-                if file_create_attempt > 3:
-                    print("Maximum failed attempts reached for creating a new file.")
-                    print("Exiting. Please try again later.")
-                    exit(0)
-
-                output_csvpath = questionary.text("Enter a file path to store the csv file (.csv):").ask()
-                output_csvpath = Path(output_csvpath)
-
-                # Check if the file name provided by the user already exists.
-                # If so, prompt the user to provide a new name.
-                if output_csvpath.is_file():
-                    print("File path already exists. Please enter an unique file name.")
-                else:
-                    try_file_create = False
+            # Get a unique file name for output csv file.
+            output_csvpath = get_unique_filename()
 
             # Please confirm with the user if they want to save the file to the given location.
             # This provides the user an option to abort from saving the file.
